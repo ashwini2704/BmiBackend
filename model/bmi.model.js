@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 const bmiSchema = mongoose.Schema({
       bmi : Number,
-      date: Date
+      date: Date,
+      userID : String
 }, {
     versionKey : false
 })

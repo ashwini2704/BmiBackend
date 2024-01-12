@@ -7,7 +7,7 @@ const bmiRouter = express.Router();
 bmiRouter.get("/", async (req,res) => {
     const {userID} = req.body;
     try {
-        const allBmi = await BmiModel.find({_id : userID});
+        const allBmi = await BmiModel.find({userID});
         // console.log(allPosts);
         if(allBmi.length ==0) {
             res.status(200).send({"msg" : "No bmi" })

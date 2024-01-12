@@ -6,7 +6,7 @@ const {UserModel} = require("../model/user.model");
 const userRouter = express.Router();
 
 userRouter.post("/register", async(req,res) => {
-    const {name,email,gender, password} = req.body;
+    const {name,email, password} = req.body;
     try {
        const user = await UserModel.find({email});
        if(user.length>0) {
@@ -18,7 +18,7 @@ userRouter.post("/register", async(req,res) => {
                 res.status(200).send({"msg" : err})
 
             }else{
-                const newUser = new UserModel({name,email,gender, password:hash});
+                const newUser = new UserModel({name,email, password:hash});
                 await newUser.save();
                 res.status(200).send({"msg" : "New User has been successfully added"})
             }               
